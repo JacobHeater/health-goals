@@ -1,0 +1,40 @@
+name: Morning | Weight check
+
+on:
+  workflow_dispatch:
+    
+  schedule:
+    # Every day at 7:00 AM Eastern.
+    - cron: 00 11 * * *
+
+env:
+  USERNAME: ${{ secrets.GMAIL_USERNAME }}
+  PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+  HOST: ${{ secrets.GMAIL_HOST }}
+  PORT: ${{ secrets.GMAIL_PORT }}
+  SECURE: ${{ secrets.GMAIL_SECURE }}
+  FROM: ${{ secrets.GMAIL_USERNAME }}
+  TO: ${{ secrets.GMAIL_USERNAME }}
+  SUBJECT: Morning weigh-in reminder
+  TEXT: |
+    - Daddy needs to weight in!
+    - Log to spreadsheet!
+
+jobs:
+  remind:
+    
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: npm install
+        run: npm ci
+      
+      - name: Send me an email
+        run: npx ts-node src/send-email.ts
+
+      - name: Send me a text
+        env:
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+        run: npx ts-node src/send-tmobile-sms.ts
