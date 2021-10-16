@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     
   schedule:
-    # Every day at 8 AM Eastern.
-    - cron: 0 12 * * *
+    # Every day at 7:15 AM Eastern.
+    - cron: 15 11 * * *
 
 env:
   USERNAME: ${{ secrets.GMAIL_USERNAME }}
