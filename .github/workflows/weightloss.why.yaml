@@ -39,3 +39,8 @@ jobs:
       
       - name: Send me an email
         run: npx ts-node src/send-email.ts
+
+      - name: Send me a text
+        env:
+          PHONE_NUMBER: ${{ secrets.PHONE_NUMBER }}
+        run: npx ts-node src/send-tmobile-sms.ts
