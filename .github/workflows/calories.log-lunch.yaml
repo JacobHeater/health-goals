@@ -5,7 +5,7 @@ on:
     
   schedule:
     # Every day at 3 PM Eastern.
-    - cron: 0 15 * * *
+    - cron: 0 19 * * *
 
 env:
   USERNAME: ${{ secrets.GMAIL_USERNAME }}
