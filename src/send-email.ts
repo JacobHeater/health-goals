@@ -9,8 +9,8 @@ if (require.main === module) {
           pass: process.env.PASSWORD,
         },
         host: process.env.HOST,
-        port: JSON.parse(process.env.PORT),
-        secure: JSON.parse(process.env.SECURE),
+        port: JSON.parse(process.env.PORT || ''),
+        secure: JSON.parse(process.env.SECURE || ''),
       },
       {
         from: process.env.FROM,
@@ -23,22 +23,22 @@ if (require.main === module) {
 }
 
 export interface EmailCredentials {
-  user: string;
-  pass: string;
+  user?: string;
+  pass?: string;
 }
 
 export interface EmailSettings {
   auth: EmailCredentials;
-  host: string;
-  port: number;
-  secure: boolean;
+  host?: string;
+  port?: number;
+  secure?: boolean;
 }
 
 export interface EmailContents {
-  from: string;
-  to: string;
-  subject: string;
-  text: string;
+  from?: string;
+  to?: string;
+  subject?: string;
+  text?: string;
 }
 
 export async function sendEmailAsync(
