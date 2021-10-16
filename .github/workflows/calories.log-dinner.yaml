@@ -1,4 +1,4 @@
-name: Reminder to log dinner calories
+name: Dinner | log calories
 
 on:
   workflow_dispatch:
