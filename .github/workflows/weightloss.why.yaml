@@ -33,9 +33,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
-      - name: log stuff
-        run: echo ${{ secrets.GMAIL_HOST }}
 
       - name: npm install
         run: npm ci
