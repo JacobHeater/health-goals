@@ -19,7 +19,7 @@ if (require.main === module) {
         text: process.env.TEXT,
       }
     );
-  })();
+  })().catch(console.error);
 }
 
 export interface EmailCredentials {
