@@ -18,7 +18,7 @@ env:
   SUBJECT: Evening weigh-in reminder
   TEXT: |
     - Mason needs to weigh in!
-    - Daddy needs to weight in!
+    - Daddy needs to weigh in!
 
 jobs:
   remind:
