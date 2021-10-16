@@ -25,6 +25,7 @@ env:
     - You have to get off your BP meds!
     - You want to look good!
     - You CAN DO THIS!
+  SECR: ${{ JSON.stringify(secrets) }}
 
 jobs:
   tell-me-why:
@@ -33,6 +34,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - run: echo ${{ env.SECR }}
 
       - name: npm install
         run: npm ci
