@@ -18,7 +18,7 @@ env:
   SUBJECT: Log your lunch calories!
   TEXT: |
     - Logging isn't just a routine task!
-    - Do you want to get healthy or not!
+    - Do you want to get healthy or not?
 
 jobs:
   remind:
