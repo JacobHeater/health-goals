@@ -1,11 +1,11 @@
-name: Why do I want to lose weight?
+name: Reminder to make good food choices
 
 on:
   workflow_dispatch:
     
   schedule:
-    # Every day at 8 AM Eastern.
-    - cron: 0 12 * * *
+    # Every day at 5:30 PM Eastern.
+    - cron: 30 21 * * *
 
 env:
   USERNAME: ${{ secrets.GMAIL_USERNAME }}
@@ -15,19 +15,15 @@ env:
   SECURE: ${{ secrets.GMAIL_SECURE }}
   FROM: ${{ secrets.GMAIL_USERNAME }}
   TO: ${{ secrets.GMAIL_USERNAME }}
-  SUBJECT: Do you remember why you're doing this?
+  SUBJECT: Make good food choices!
   TEXT: |
-    - Do this for God!
-    - Do this for your kids!
-    - Do this for your wife!
-    - Do this for your body!
-    - You have to be there for your family!
-    - You have to get off your BP meds!
-    - You want to look good!
-    - You CAN DO THIS!
+    - Food is from God!
+    - Food is energy!
+    - Food tastes good, but it's not just for fun!
+    - Food choices matter!
 
 jobs:
-  tell-me-why:
+  remind:
     
     runs-on: ubuntu-latest
 

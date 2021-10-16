@@ -1,11 +1,11 @@
-name: Why do I want to lose weight?
+name: Reminder to log breakfast calories
 
 on:
   workflow_dispatch:
     
   schedule:
-    # Every day at 8 AM Eastern.
-    - cron: 0 12 * * *
+    # Every day at 10 AM Eastern.
+    - cron: 0 14 * * *
 
 env:
   USERNAME: ${{ secrets.GMAIL_USERNAME }}
@@ -15,19 +15,13 @@ env:
   SECURE: ${{ secrets.GMAIL_SECURE }}
   FROM: ${{ secrets.GMAIL_USERNAME }}
   TO: ${{ secrets.GMAIL_USERNAME }}
-  SUBJECT: Do you remember why you're doing this?
+  SUBJECT: Log your breakfast calories!
   TEXT: |
-    - Do this for God!
-    - Do this for your kids!
-    - Do this for your wife!
-    - Do this for your body!
-    - You have to be there for your family!
-    - You have to get off your BP meds!
-    - You want to look good!
-    - You CAN DO THIS!
+    - Logging isn't just a routine task!
+    - Do you want to get healthy or not!
 
 jobs:
-  tell-me-why:
+  remind:
     
     runs-on: ubuntu-latest
 
