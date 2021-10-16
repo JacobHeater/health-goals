@@ -1,4 +1,4 @@
-name: Reminder to make good food choices in the morning
+name: Morning | Reminder to make good food choices
 
 on:
   workflow_dispatch:
