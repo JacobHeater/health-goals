@@ -17,7 +17,7 @@ env:
   TO: ${{ secrets.GMAIL_USERNAME }}
   SUBJECT: Morning weigh-in reminder
   TEXT: |
-    - Daddy needs to weight in!
+    - Don't forget to weigh in!
     - Log to spreadsheet!
 
 jobs:
