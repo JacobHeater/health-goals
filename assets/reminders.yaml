@@ -1,0 +1,81 @@
+reminders:
+  calories:
+    text: |
+      - Logging isn't just a routine task!
+      - Do you want to get healthy or not?
+    entries:
+      - name: Breakfast | log calories
+        time: 0 14 * * *
+        subject: Log your breakfast calories!
+      - name: Lunch | log calories
+        time: 0 19 * * *
+        subject: Log your lunch calories!
+      - name: Dinner | log calories
+        time: 0 0 * * *
+        subject: Log your dinner calories!
+  food:
+    text: |
+      - Food is from God!
+      - Food is energy!
+      - Food tastes good, but it's not just for fun!
+      - Food choices matter!
+    entries:
+      - name: Morning | Reminder to make good food choices
+        time: 30 15 * * *
+        subject: Make good food choices!
+      - name: Noon | Reminder to make good food choices
+        time: 30 16 * * *
+        subject: Make good food choices!
+      - name: Evening | Reminder to make good food choices
+        time: 30 21 * * *
+        subject: Make good food choices!
+  water:
+    text: |
+      - Fill up 32 fl oz of water!
+      - Drink water!
+      - Water is essential for kidney health!
+      - Water will help you lose weight!
+      - Water keeps you feeling fuller longer!
+    entries:
+      - name: Upon Waking | Drink water
+        time: 40 11 * * *
+        subject: Drink 32 fl oz of water!
+      - name: Mid-morning | Drink water
+        time: 35 15 * * *
+        subject: Drink 32 fl oz of water!
+      - name: Afternoon | Drink water
+        time: 50 19 * * *
+        subject: Drink 32 fl oz of water!
+      - name: Evening | Drink water
+        time: 25 22 * * *
+        subject: Drink 32 fl oz of water!
+  weight:
+    entries:
+      - name: Morning | Weight check
+        time: 0 11 * * *
+        subject: Morning weigh-in reminder
+        text: |
+          - Don't forget to weigh in!
+          - Log to spreadsheet!
+      - name: Evening | Weight check
+        time: 50 23 * * *
+        subject: Evening weigh-in reminder
+        text: |
+          - Mason needs to weigh in!
+          - Daddy needs to weigh in!
+  purpose:
+    entries:
+      - name: Why do I want to lose weight?
+        time: 15 11 * * *
+        subject: Do you remember why you're doing this?
+        text: |
+          - Do this for God!
+          - Do this for your kids!
+          - Do this for your wife!
+          - Do this for your body!
+          - You have to be there for your family!
+          - You have to get off your BP meds!
+          - You want to look good!
+          - You CAN DO THIS!
+        
+    

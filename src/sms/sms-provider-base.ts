@@ -1,8 +1,10 @@
 import { sendEmailAsync } from "../send-email";
 import { ISmsProvider } from "./isms-provider";
+import { SmsProviderType } from "./sms-provider-type";
 
 export abstract class SmsProviderBase implements ISmsProvider {
     protected abstract get domain(): string;
+    protected abstract get providerType(): SmsProviderType;
 
     async sendTextMessageAsync(): Promise<void> {
         await sendEmailAsync({
