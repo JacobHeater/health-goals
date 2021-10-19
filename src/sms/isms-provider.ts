@@ -1,3 +1,3 @@
 export interface ISmsProvider {
-    sendTextMessageAsync(): Promise<void>;
+	sendTextMessageAsync(): Promise<void>;
 }
