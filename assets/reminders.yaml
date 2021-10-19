@@ -61,8 +61,7 @@ reminders:
         time: 50 23 * * *
         subject: Evening weigh-in reminder
         text: |
-          - Mason needs to weigh in!
-          - Daddy needs to weigh in!
+          - Don't forget to weigh in!
   purpose:
     entries:
       - name: Why do I want to lose weight?

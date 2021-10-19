@@ -23,7 +23,6 @@ env:
   SUBJECT: Evening weigh-in reminder
   TEXT: |
     - Don't forget to weigh in!
-    - Log to spreadsheet!
 jobs:
   act:
     runs-on: ubuntu-latest
