@@ -1,7 +1,9 @@
+import yaml from 'js-yaml';
+
 export class TemplateAsset {
-    name: string = '';
-    on: TemplateTriggers = new TemplateTriggers();
-    env = {
+    protected name: string = '';
+    protected on: TemplateTriggers = new TemplateTriggers();
+    protected env = {
         USERNAME: '${{ secrets.GMAIL_USERNAME }}',
         PASSWORD: '${{ secrets.GMAIL_PASSWORD }}',
         HOST: '${{ secrets.GMAIL_HOST }}',
@@ -12,7 +14,7 @@ export class TemplateAsset {
         SUBJECT: '',
         TEXT: '',
     };
-    jobs = {
+    protected jobs = {
         act: {
             'runs-on': 'ubuntu-latest',
             steps: [{
@@ -34,30 +36,39 @@ export class TemplateAsset {
         }
     }
 
-    setName(name: string): void {
+    setName(name: string): TemplateAsset {
         this.name = name;
+        return this;
     }
 
-    setSubject(subject: string): void {
+    setSubject(subject: string): TemplateAsset {
         this.env.SUBJECT = subject;
+        return this;
     }
 
-    setText(text: string): void {
+    setText(text: string): TemplateAsset {
         this.env.TEXT = text;
+        return this;
     }
 
-    setCron(cron: string): void {
+    setCron(cron: string): TemplateAsset {
         this.on.addCron(cron);
+        return this;
+    }
+
+    toYaml(): string {
+        return yaml.dump(this);
     }
 }
 
 export class TemplateTriggers {
-    workflow_dispatch = {};
-    schedule: { ['cron']: string }[] = [];
+    protected workflow_dispatch = {};
+    protected schedule: { ['cron']: string }[] = [];
 
-    addCron(cron: string): void {
+    addCron(cron: string): TemplateTriggers {
         this.schedule.push({
             cron
         });
+        return this;
     }
 }

@@ -7,34 +7,27 @@ import { IRemindersAsset } from '../src/assets/ireminders-asset';
 import { TemplateAsset } from '../src/assets/template-asset';
 
 const remindersPath: string = join(process.cwd(), 'assets', 'reminders.yaml');
+const cleanWorkflowsFiles = () => rimraf.sync(join(process.cwd(), '.github', 'workflows', '*'));
 
 (async () => {
-    rimraf.sync(join(process.cwd(), '.github', 'workflows', '*'));
+    cleanWorkflowsFiles();
 
     const remindersYaml  = (await fs.readFile(remindersPath)).toString();
     const remindersObj = yaml.load(remindersYaml) as IRemindersAsset;
 
     const { reminders } = remindersObj;
-    const groupsKeys = Object.keys(reminders);
+    const groups = Object.keys(reminders).map(key => ({key, group: reminders[key]}));
 
-    for (const groupKey of groupsKeys) {
-        const group = reminders[groupKey];
-        let text = group.text;
-
+    for (const {key, group} of groups) {
         for (const entry of group.entries) {
-            if (!text) {
-                text = entry.text;
-            }
+            const workflowYaml = getWorkflowFinalYaml(new TemplateAsset()
+                .setName(entry.name)
+                .setSubject(entry.subject)
+                .setText(group.text || entry.text || '')
+                .setCron(entry.time)
+                .toYaml());
 
-            const workflow = new TemplateAsset();
-            workflow.setName(entry.name);
-            workflow.setSubject(entry.subject);
-            workflow.setText(text || '');
-            workflow.setCron(entry.time);
-
-            const workflowYaml = getWorkflowFinalYaml(yaml.dump(workflow));
-
-            await fs.writeFile(join(process.cwd(), '.github', 'workflows', `${groupKey}.${sanitizeName(entry.name)}.yaml`), workflowYaml);
+            await fs.writeFile(join(process.cwd(), '.github', 'workflows', `${key}.${sanitizeName(entry.name)}.yaml`), workflowYaml);
         }
     }
 })();
