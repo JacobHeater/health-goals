@@ -25,7 +25,7 @@ export class TemplateAsset {
                 run: 'npx ts-node src/send-email.ts'
             }, {
                 name: 'Send me a text',
-                run: 'npx ts-node src/send-tmobile-sms.ts',
+                run: 'npx ts-node src/send-sms.ts',
                 env: {
                     PHONE_NUMBER: '${{ secrets.PHONE_NUMBER }}',
                     SMS_PROVIDER: '${{ secrets.SMS_PROVIDER }}',
