@@ -1,4 +1,4 @@
-name: Upon Waking | Drink water
+name: Mid-morning | Drink water
 
 on:
   workflow_dispatch:

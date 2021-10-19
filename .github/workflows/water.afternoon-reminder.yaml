@@ -1,4 +1,4 @@
-name: Upon Waking | Drink water
+name: Afternoon | Drink water
 
 on:
   workflow_dispatch:
@@ -15,7 +15,7 @@ env:
   SECURE: ${{ secrets.GMAIL_SECURE }}
   FROM: ${{ secrets.GMAIL_USERNAME }}
   TO: ${{ secrets.GMAIL_USERNAME }}
-  SUBJECT: Log your lunch calories!
+  SUBJECT: Drink 32 fl oz of water!
   TEXT: |
     - Fill up 32 fl oz of water!
     - Drink water!
