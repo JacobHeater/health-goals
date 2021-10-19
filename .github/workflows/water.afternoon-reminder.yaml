@@ -1,11 +1,11 @@
-name: Morning | Weight check
+name: Upon Waking | Drink water
 
 on:
   workflow_dispatch:
-    
+
   schedule:
-    # Every day at 7:00 AM Eastern.
-    - cron: 0 11 * * *
+    # Every day at 3:50 PM Eastern
+    - cron: 50 19 * * *
 
 env:
   USERNAME: ${{ secrets.GMAIL_USERNAME }}
@@ -15,14 +15,17 @@ env:
   SECURE: ${{ secrets.GMAIL_SECURE }}
   FROM: ${{ secrets.GMAIL_USERNAME }}
   TO: ${{ secrets.GMAIL_USERNAME }}
-  SUBJECT: Morning weigh-in reminder
+  SUBJECT: Log your lunch calories!
   TEXT: |
-    - Don't forget to weigh in!
-    - Log to spreadsheet!
+    - Fill up 32 fl oz of water!
+    - Drink water!
+    - Water is essential for kidney health!
+    - Water will help you lose weight!
+    - Water keeps you feeling fuller longer!
 
 jobs:
   remind:
-    
+
     runs-on: ubuntu-latest
 
     steps:
